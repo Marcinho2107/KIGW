@@ -1,0 +1,38 @@
+# Artificial Intelligence in Health Care — pip requirements
+#
+# Install into the `aihc` conda environment (see environment.yml):
+#     pip install -r requirements.txt
+#
+# PyTorch is installed separately, from its own CPU index:
+#     pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+# Keeping it out of this file avoids the torch index shadowing every other package.
+#
+# Students write **Keras 3**; PyTorch is only the backend that runs underneath.
+# Set the backend before importing keras, in every notebook:
+#     import os; os.environ["KERAS_BACKEND"] = "torch"
+# (or export KERAS_BACKEND=torch in the shell / kernel environment)
+
+# --- modelling ----------------------------------------------------------
+keras              # Keras 3, running on the PyTorch backend
+
+# --- core ---------------------------------------------------------------
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+
+# --- notebooks ----------------------------------------------------------
+jupyterlab
+ipykernel
+nbformat
+nbconvert
+
+# --- explainability -----------------------------------------------------
+shap               # S13 / NB6 — SHAP values (tested: shap 0.51, numpy 2.4, keras 3.15)
+
+# --- data access --------------------------------------------------------
+ucimlrepo          # UE1 — Diabetes 130-US Hospitals (UCI 296)
+pyarrow
+tqdm
+

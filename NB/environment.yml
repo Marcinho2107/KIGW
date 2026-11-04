@@ -1,0 +1,33 @@
+# Artificial Intelligence in Health Care — course environment
+#
+#   conda env create -f environment.yml
+#   conda activate aihc
+#   pip install -r requirements.txt
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+#
+# The conda layer is deliberately thin (python + pip only). Everything else is
+# installed with pip, because the installed conda (4.14, classic solver) is slow
+# and prone to channel conflicts, and because PyTorch's CPU wheels are published
+# on their own index.
+#
+# Students write **Keras 3** with the **PyTorch backend**: the Keras API they
+# learn is one step from the sklearn fit/predict they already know, while torch
+# underneath means UE4's HuggingFace stack shares a single runtime. Set
+#     KERAS_BACKEND=torch
+# before importing keras (each notebook does this in its first cell).
+#
+# Session-specific packages (shap for NB6, and others) are listed in
+# requirements.txt, not here, for the same reason.
+#
+# This environment is CPU-only by design — see 00-master.md §2. No existing
+# environment on this machine is modified; the TensorFlow envs used by other
+# courses are untouched.
+
+name: aihc
+
+channels:
+  - defaults
+
+dependencies:
+  - python=3.11
+  - pip
